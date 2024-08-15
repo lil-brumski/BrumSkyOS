@@ -1,0 +1,1 @@
+/data/data/com.termux/files/usr/bin/c++ -O2 -g -DNDEBUG CMakeFiles/BrumskyOS.dir/src/error_handler.cpp.o CMakeFiles/BrumskyOS.dir/src/kernel.cpp.o CMakeFiles/BrumskyOS.dir/src/memory_manager.cpp.o CMakeFiles/BrumskyOS.dir/src/scheduler.cpp.o -o BrumskyOS
