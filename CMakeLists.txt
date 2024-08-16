@@ -10,6 +10,4 @@ file(GLOB SOURCES "src/*.cpp")
 
 add_executable(BrumskyOS ${SOURCES})
 
-#add_executable(BrumskyOS src/kernel.cpp src/scheduler.cpp src/error_handler.cpp)
-
 target_include_directories(BrumskyOS PRIVATE include)
