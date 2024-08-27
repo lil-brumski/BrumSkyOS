@@ -98,7 +98,5 @@ while(true){
      
   }
   
-  std::cout << "Ratio";
-  
 
 }
