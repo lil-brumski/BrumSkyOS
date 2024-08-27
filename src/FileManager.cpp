@@ -117,6 +117,7 @@ void FileManager::WriteToFile(const std::string& file_name){
       std::ofstream File(file_name);
       std::string message = "";
       if(File.is_open()){
+        std::cout << "Enter what you want to have in the file: ";
         std::getline(std::cin, message);
         File << message << std::endl;
         File.close();
