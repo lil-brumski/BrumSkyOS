@@ -44,3 +44,11 @@ What my 'OS' can do:
 * 8. Deletion of folders
 
 ___Made by David Tamaratare Oghenebrume, a Computer Engineering student of *Rivers State University*, Port Harcourt, Nigeria.___
+
+## Acknowledgements
+
+This project uses [Pybind11](https://github.com/pybind/pybind11).
+
+**Copyright Notice**:
+
+Copyright (c) 2016 Wenzel Jakob wenzel.jakob@epfl.ch, All rights reserved.
