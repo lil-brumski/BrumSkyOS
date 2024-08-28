@@ -1,6 +1,6 @@
 ```This is not an actual Operating System, it's more of a play project to improve on my C++ programming knowledge.```
 
-Update: This project now has Python/C++ bindings.
+Update: This project now has Python/C++ bindings. You also have to build this project from scratch to use it.
 
 Necessary stuff to run this project:
 * 1. C++ compiler (e.g Clang, GNU, etc).
@@ -22,13 +22,15 @@ To run this project:
 
 5. Run the executable: ```$ ./BrumSkyOS```
 
-6. For the python version, from the ```$ BrumSkyOS/``` directory, run ```$ cd PythonBindings/ && mkdir build && cd build/```
+6. For the python version, from the ```$ BrumSkyOS/``` directory, run ```$ cd PythonBindings/```
 
-7. Run ```$ cmake .. && make```
+7.  Download [pybind11](https://github.com/pybind/pybind11) from its GitHub repo into the ```PythonBindings/``` folder by running ```$ git clone https://github.com/pybind/pybind11.git``` and then ```$ mkdir build && cd build/```
 
-8. Give the executable execution permissions and go back one directory.
+8. Run ```$ cmake .. && make```
 
-9. Run ```$ python BrumSkyOS.py```
+9. Give the executable execution permissions and go back one directory.
+
+10. Run ```$ python BrumSkyOS.py```
 
 What my 'OS' can do:
 
