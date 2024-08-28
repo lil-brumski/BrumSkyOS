@@ -1,1 +1,5 @@
 build/
+
+PythonBindings/build/
+
+PythonBindings/pybind11/
