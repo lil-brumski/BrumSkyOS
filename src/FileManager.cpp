@@ -1,6 +1,7 @@
 #include <BrumSkyOS/FileManager.hpp>
 
 namespace fs = std::filesystem;
+using namespace BrumSkyOS;
 
 void FileManager::CreateFile(const std::string& file_name){
   fs::path FilePath(file_name);

@@ -4,8 +4,9 @@
 #include <sstream>
 #include <string>
 
-template <class T>
-T Input(const std::string& prompt) {
+namespace BrumSkyOS{
+  template <class T>
+  T Input(const std::string& prompt) {
   T value;
   std::string input;
   while (true){
@@ -19,4 +20,5 @@ T Input(const std::string& prompt) {
               }
   }
         return value;
+  }
 }

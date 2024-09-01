@@ -1,5 +1,5 @@
 #include <BrumSkyOS/FileManager.hpp>
-#include <ErrorHandler.hpp>
+#include <BrumSkyOS/ErrorHandler.hpp>
 #include <memory>
 #include <array>
 
@@ -22,6 +22,8 @@ int main(){
    "{9.} Quit BrumSkyOS"
    };
   
+  int Option = 0;
+
 while(true){  
     std::cout << std::endl;
       
@@ -29,21 +31,21 @@ while(true){
         std::cout << s << std::endl;
     }
       
-    auto OptionPtr = std::make_unique<int>(Input<int>("Which would you like to do? [Select the number attached to the activity]: "));
+    Option = BrumSkyOS::Input<int>("Which would you like to do? [Select the number attached to the activity]: ");
     
     std::cout << std::endl;
     
-    switch(*OptionPtr){
+    switch(Option){
         case 1:
           std::cout << "Creating new file, enter file name: ";
           getline(std::cin, UserTask);
-          FileManager::CreateFile(UserTask);
+          BrumSkyOS::FileManager::CreateFile(UserTask);
           break;
           
         case 2:
           std::cout << "Deleting file, enter file name: ";
           getline(std::cin, UserTask);
-          FileManager::DeleteFile(UserTask);
+          BrumSkyOS::FileManager::DeleteFile(UserTask);
           break;
           
         case 3:
@@ -51,25 +53,26 @@ while(true){
           getline(std::cin, UserTask);
           std::cout << "Enter new name: ";
           getline(std::cin, UserTask2);
-          FileManager::RenameFile(UserTask, UserTask2);
+
+BrumSkyOS::FileManager::RenameFile(UserTask, UserTask2);
           break;
           
         case 4:
           std::cout << "Enter the file name: ";
           getline(std::cin, UserTask);
-          FileManager::WriteToFile(UserTask);
+           BrumSkyOS::FileManager::WriteToFile(UserTask);
           break;
           
         case 5:
           std::cout << "Enter the file name: ";
           getline(std::cin, UserTask);
-          FileManager::ReadFile(UserTask);
+        BrumSkyOS::FileManager::ReadFile(UserTask);
           break;
           
         case 6:
           std::cout << "Creating new folder, enter folder name: ";
           getline(std::cin, UserTask);
-          FileManager::CreateFolder(UserTask);
+          BrumSkyOS::FileManager::CreateFolder(UserTask);
           break;
           
         case 7:
@@ -77,13 +80,13 @@ while(true){
           getline(std::cin, UserTask);
           std::cout << "Enter new name: ";
           getline(std::cin, UserTask2);
-          FileManager::RenameFolder(UserTask, UserTask2);
+          BrumSkyOS::FileManager::RenameFolder(UserTask, UserTask2);
           break;
           
         case 8:
           std::cout << "Deleting folder, enter folder name: ";
           getline(std::cin, UserTask);
-          FileManager::DeleteFolder(UserTask);
+          BrumSkyOS::FileManager::DeleteFolder(UserTask);
           break;
           
         case 9:

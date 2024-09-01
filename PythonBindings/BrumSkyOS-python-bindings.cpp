@@ -1,8 +1,9 @@
 #include <BrumSkyOS/FileManager.hpp>
-#include <ErrorHandler.hpp>
+#include <BrumSkyOS/ErrorHandler.hpp>
 #include <pybind11/pybind11.h>
 
 namespace py = pybind11;
+using namespace BrumSkyOS;
 
 PYBIND11_MODULE(BrumSkyOS, b){
     b.doc() = "Just for fun, I know it's no way close to being an actual OS.";
