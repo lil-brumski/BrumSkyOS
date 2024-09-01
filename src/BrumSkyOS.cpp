@@ -65,7 +65,7 @@ while(true){
         case 5:
           std::cout << "Enter the file name: ";
           getline(std::cin, UserTask);
-        BrumSkyOS::FileManager::ReadFile(UserTask);
+          BrumSkyOS::FileManager::ReadFile(UserTask);
           break;
           
         case 6:
