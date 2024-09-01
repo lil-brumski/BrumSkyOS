@@ -1,0 +1,1 @@
+This subdirectory is for storing the most important header files for this project.
