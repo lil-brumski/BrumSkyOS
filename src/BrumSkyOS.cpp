@@ -53,8 +53,7 @@ while(true){
           getline(std::cin, UserTask);
           std::cout << "Enter new name: ";
           getline(std::cin, UserTask2);
-
-BrumSkyOS::FileManager::RenameFile(UserTask, UserTask2);
+          BrumSkyOS::FileManager::RenameFile(UserTask, UserTask2);
           break;
           
         case 4:
