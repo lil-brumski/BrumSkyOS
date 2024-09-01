@@ -8,6 +8,7 @@ int main(){
   std::cout << "Welcome to BrumSkyOS, we offer a few services: ";
   std::string UserTask = "";
   std::string UserTask2 = "";
+  int Option = 0;
         
   std::array<std::string, 9> services = 
   {
@@ -22,7 +23,7 @@ int main(){
    "{9.} Quit BrumSkyOS"
    };
   
-  int Option = 0;
+
 
 while(true){  
     std::cout << std::endl;
@@ -59,7 +60,7 @@ while(true){
         case 4:
           std::cout << "Enter the file name: ";
           getline(std::cin, UserTask);
-           BrumSkyOS::FileManager::WriteToFile(UserTask);
+          BrumSkyOS::FileManager::WriteToFile(UserTask);
           break;
           
         case 5:
