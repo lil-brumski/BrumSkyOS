@@ -5,3 +5,5 @@ PythonBindings/build/
 PythonBindings/pybind11/
 
 CSBindings/build/
+
+*.db*
