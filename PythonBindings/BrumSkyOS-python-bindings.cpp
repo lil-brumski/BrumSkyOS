@@ -1,8 +1,10 @@
-#include <BrumSkyOS/FileManager.hpp>
-#include <BrumSkyOS/ErrorHandler.hpp>
+#include <FileManager.hpp>
+#include <ErrorHandler.hpp>
+#include <Time.hpp>
 #include <pybind11/pybind11.h>
 
 namespace py = pybind11;
+
 using namespace BrumSkyOS;
 
 PYBIND11_MODULE(BrumSkyOS, b){
@@ -25,6 +27,7 @@ PYBIND11_MODULE(BrumSkyOS, b){
     b.def("WriteToFile", &FileManager::WriteToFile, "A function for writing to files.");
     
     b.def("Input", &Input<int>, "A function that makes sure the user enters an integer.");
-    
+
+    b.def("Time", &Time, "A function for calculating current time.");   
  
 }

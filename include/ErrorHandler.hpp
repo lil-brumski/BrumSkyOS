@@ -6,10 +6,10 @@
 
 namespace BrumSkyOS{
   template <class T>
-  T Input(const std::string& prompt) {
-  T value;
-  std::string input;
-  while (true){
+  T Input(const std::string& prompt){
+    T value;
+    std::string input;
+    while (true){
          std::cout << prompt;
          std::getline(std::cin, input);
          std::istringstream stream(input);
@@ -18,7 +18,8 @@ namespace BrumSkyOS{
          }else{
             std::cerr << "Not a number, try again!\n";
               }
-  }
+    }
         return value;
   }
+
 }

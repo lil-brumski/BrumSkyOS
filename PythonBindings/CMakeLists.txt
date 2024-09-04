@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.20.3)
+cmake_minimum_required(VERSION 3.24.3)
 
 project(BrumSkyOS VERSION 1.0 DESCRIPTION "Just for fun, I know it's no way close to being an actual OS.")
 
@@ -13,7 +13,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 # Create Python module
-pybind11_add_module(BrumSkyOS BrumSkyOS-python-bindings.cpp ../src/FileManager.cpp)
+pybind11_add_module(BrumSkyOS BrumSkyOS-python-bindings.cpp ../src/FileManager.cpp ../src/Time.cpp)
 
 target_include_directories(BrumSkyOS PRIVATE ../include)
 

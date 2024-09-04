@@ -12,7 +12,8 @@ services = [
    "{6.} Creating folders",
    "{7.} Renaming of folder",
    "{8.} Deletion of folder",
-   "{9.} Quit BrumSkyOS"
+   "{9.} Check current time",
+   "{10.} Quit BrumSkyOS"
 ]
 
 while True:
@@ -55,8 +56,12 @@ while True:
   elif option == 8:
     UserTask = input("Deleting folder, enter folder name: ")
     BrumSkyOS.DeleteFolder(UserTask)
-    
+   
   elif option == 9:
+    print("The current time is: ");
+    BrumSkyOS.Time()
+
+  elif option == 10:
     print("Good bye!")
     sys.exit(0)
     

@@ -1,6 +1,6 @@
 ```This is not an actual Operating System, it's more of a play project to improve on my C++ programming knowledge.```
 
-Update: This project now has Python/C++ bindings. You also have to build this project from scratch to use it.
+Update: This project now has Python/C++ and C++/C# bindings. You also have to build this project from scratch to use it.
 
 Necessary stuff to run this project:
 * 1. C++ compiler (e.g Clang, GNU, etc).
@@ -8,7 +8,8 @@ Necessary stuff to run this project:
 * 3. A working command line/terminal.
 * 4. Download `git` on your device's terminal.
 * 5. Download ```python```
-* In summary, run ```$ pkg install clang cmake git python```
+* 6. Download a C# compiler e.g ```mono```
+* In summary, run ```$ pkg install clang cmake git python mono```
 
 To run this project: 
 
@@ -32,6 +33,14 @@ To run this project:
 
 10. Run ```$ python BrumSkyOS.py```
 
+11. For the C# version, from the ```$ BrumSkyOS/``` directory, run ```$ cd CSBindings/```
+
+12. Run ```$ mkdir build && cd build/```
+
+13. Then run ```$ cmake .. && make```
+
+14. Run ```cd ..``` and compile the C# code and run it e.g ```$ csc BrumSkyOS.cs && mono BrumSkyOS.exe```
+
 What my 'OS' can do:
 
 * 1. Creation of files.
@@ -41,7 +50,8 @@ What my 'OS' can do:
 * 5. Reading data from files.
 * 6. Creating folders.
 * 7. Renaming of folders.
-* 8. Deletion of folders
+* 8. Deletion of folders.
+* 9. Checking of current time.
 
 ___Made by David Tamaratare Oghenebrume, a Computer Engineering student of *Rivers State University*, Port Harcourt, Nigeria.___
 

@@ -1,7 +1,9 @@
-#include <BrumSkyOS/FileManager.hpp>
+#include <FileManager.hpp>
 
 namespace fs = std::filesystem;
-using namespace BrumSkyOS;
+
+namespace BrumSkyOS{
+
 
 void FileManager::CreateFile(const std::string& file_name){
   fs::path FilePath(file_name);
@@ -130,4 +132,7 @@ void FileManager::WriteToFile(const std::string& file_name){
   else{
       std::cout << "Create file before attempting to write to it!\n";
   }
+}
+
+
 }

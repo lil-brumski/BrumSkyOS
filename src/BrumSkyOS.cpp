@@ -1,6 +1,6 @@
-#include <BrumSkyOS/FileManager.hpp>
-#include <BrumSkyOS/ErrorHandler.hpp>
-#include <memory>
+#include <FileManager.hpp>
+#include <ErrorHandler.hpp>
+#include <Time.hpp>
 #include <array>
 
 int main(){
@@ -10,7 +10,7 @@ int main(){
   std::string UserTask2 = "";
   int Option = 0;
         
-  std::array<std::string, 9> services = 
+  std::array<std::string, 10> services = 
   {
    "{1.} Creation of file",
    "{2.} Deletion of file", 
@@ -20,7 +20,8 @@ int main(){
    "{6.} Creating folders",
    "{7.} Renaming of folder",
    "{8.} Deletion of folder",
-   "{9.} Quit BrumSkyOS"
+   "{9.} Current Time",
+   "{10.} Quit BrumSkyOS"
    };
   
 
@@ -88,8 +89,13 @@ while(true){
           getline(std::cin, UserTask);
           BrumSkyOS::FileManager::DeleteFolder(UserTask);
           break;
-          
+   
         case 9:
+          std::cout << "The current time is: ";
+          BrumSkyOS::Time();
+          break;
+          
+        case 10:
           std::cout << "Good bye!\n";
           return 0;
           break;

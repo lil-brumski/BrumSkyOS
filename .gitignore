@@ -3,3 +3,5 @@ build/
 PythonBindings/build/
 
 PythonBindings/pybind11/
+
+CSBindings/build/
