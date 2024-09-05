@@ -4,6 +4,7 @@
 #include <fstream>
 #include <string>
 #include <iostream>
+#include <stdexcept>
 
 namespace BrumSkyOS{
 
