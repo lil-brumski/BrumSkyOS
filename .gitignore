@@ -6,4 +6,4 @@ PythonBindings/pybind11/
 
 CSBindings/build/
 
-CSBindings/*.CSharpShellProjData.db
+CSBindings/.CSharpShellProjData.db
