@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.24.3)
 
-project(BrumSkyOS VERSION 1.0 DESCRIPTION "Just for fun, I know it's no way close to being an actual OS.")
+project(BrumSkyOS VERSION 1.0.1 DESCRIPTION "Just for fun, I know it's no way close to being an actual OS.")
 
 # Find pybind11 installed in the system
 add_subdirectory(pybind11)
