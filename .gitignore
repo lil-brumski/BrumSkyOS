@@ -6,4 +6,4 @@ PythonBindings/pybind11/
 
 CSBindings/build/
 
-*.db*
+CSBindings/*.db
