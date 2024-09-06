@@ -59,7 +59,13 @@ void FileManager::RenameFile(const std::string& file_name, const std::string& ne
         fs::rename(OldFilePath, NewFilePath);
         std::cout << "Successfully renamed \'" << file_name << "\' to \'" << new_name << "\'!\n";
     }
-    else{
+    else if(fs::exists(NewFilePath) && !fs::exists(OldFilePath)){
+        throw std::runtime_error("\'" + file_name + "\' does not exist!");
+    }
+    else if(fs::exists(NewFilePath) && fs::exists(OldFilePath)){
+        throw std::runtime_error("\'" + new_name + "\' already exists.");
+    }
+    else if(!fs::exists(OldFilePath)){
         throw std::runtime_error("\'" + file_name + "\' does not exist!");
     }
   }
@@ -93,7 +99,7 @@ void FileManager::DeleteFolder(const std::string& folder_name){
   fs::path FolderPath(folder_name);
   
   try{
-    if(fs::exists(FolderPath)){
+    if(fs::exists(FolderPath) && fs::is_directory(FolderPath)){
         if(fs::remove(FolderPath)){
           std::cout << "Folder deleted successfully!\n";
         }
@@ -101,8 +107,11 @@ void FileManager::DeleteFolder(const std::string& folder_name){
           std::cout << "Could not delete folder, sorry :(\n";
         }
     }
-    else{
+    else if(!fs::exists(FolderPath)){
         throw std::runtime_error("Directory does not exist bro :(");
+    }
+    else{
+        throw std::runtime_error("\'" + folder_name + "\' is a file, not a directory.");
     }
   }
   catch(const std::exception& error){
@@ -115,17 +124,31 @@ void FileManager::RenameFolder(const std::string& folder_name, const std::string
   fs::path NewFolderPath(new_name);
   
   try{
-    if(fs::exists(OldFolderPath) && !fs::exists(NewFolderPath)){
-        fs::rename(OldFolderPath, NewFolderPath);
-        std::cout << "Successfully renamed \'" << folder_name << "\' to \'" << new_name << "\'!\n";
+    if(fs::exists(OldFolderPath) && fs::is_directory(OldFolderPath)){
+        
+        if(fs::exists(NewFolderPath) && fs::is_directory(NewFolderPath)){
+            throw std::runtime_error("\'" + new_name + "\' already exists.");
+        }
+        else if(!fs::is_directory(NewFolderPath)){
+            throw std::runtime_error("\'" + new_name + "\' is a file, you can\'t have a folder have the same name as a file for now, will change in the future.");
+        }   
+        else{
+          fs::rename(OldFolderPath, NewFolderPath);
+          std::cout << "Successfully renamed \'" << folder_name << "\' to \'" << new_name << "\'!\n";
+        }    
+           
+    }
+    else if(!fs::exists(OldFolderPath)){
+        throw std::runtime_error("\'" + folder_name + "\' does not exist!");
     }
     else{
-        throw std::runtime_error("\'" + folder_name + "\' does not exist!");
+        throw std::runtime_error("\'" + folder_name + "\' is not a directory!");
     }
   }
   catch(const std::exception& error){
       std::cerr << "Error: " << error.what() << std::endl;
   }
+  
 }
 
 void FileManager::ReadFile(const std::string& file_name){

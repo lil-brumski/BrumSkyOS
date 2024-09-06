@@ -1,3 +1,8 @@
+Do it to these functions 
+
+
+
+
 #include "FileManager.hpp"
 #include "ErrorHandler.hpp"
 #include "Time.hpp"
