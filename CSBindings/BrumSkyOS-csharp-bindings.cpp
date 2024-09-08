@@ -1,11 +1,6 @@
-Do it to these functions 
-
-
-
-
-#include "FileManager.hpp"
-#include "ErrorHandler.hpp"
-#include "Time.hpp"
+#include <BrumSkyOS/FileManager.hpp>
+#include <BrumSkyOS/ErrorHandler.hpp>
+#include <BrumSkyOS/Time.hpp>
 
 using namespace BrumSkyOS;
 
