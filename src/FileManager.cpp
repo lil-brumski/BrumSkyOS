@@ -1,5 +1,6 @@
 //I'm too lazy to drop comments on each function Lmao! 🤣 😂
-//The function names are self-explanatory though.//The "FileManager::RenameFile()" function is not 100% efficient! As my C++ knowledge advances, this code will be more efficient, I promise! :)
+//The function names are self-explanatory though.
+//The "FileManager::RenameFile()" function is not 100% efficient! As my C++ knowledge advances, this code will be more efficient, I promise! :)
 
 //Made by David Tamaratare Oghenebrume. 
 //@lil-brumski on GitHub.

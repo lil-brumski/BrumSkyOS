@@ -1,4 +1,4 @@
-//This is the main file if this project.
+//This is the main file of this project.
 //Made by David Tamaratare Oghenebrume. 
 //@lil-brumski on GitHub.
 //This project is only meant for improving my C++ knowledge [for now].
