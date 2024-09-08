@@ -1,3 +1,8 @@
+//This is the main file if this project.
+//Made by David Tamaratare Oghenebrume. 
+//@lil-brumski on GitHub.
+//This project is only meant for improving my C++ knowledge [for now].
+
 #include <BrumSkyOS/FileManager.hpp>
 #include <BrumSkyOS/ErrorHandler.hpp>
 #include <BrumSkyOS/Time.hpp>
@@ -9,7 +14,8 @@ int main(){
   std::string UserTask = "";
   std::string UserTask2 = "";
   int Option = 0;
-        
+  
+  //This is a type of C++ array that uses the principle of Resource Acquisition Is Initialisation [R.A.I.I.].. It stores 10 string elements.
   std::array<std::string, 10> services = 
   {
    "{1.} Creation of file",
@@ -28,15 +34,18 @@ int main(){
 
 while(true){  
     std::cout << std::endl;
-      
+     
+     //A for-loop that prints out each element of the "services" array.
     for(auto& s: services){
         std::cout << s << std::endl;
     }
-      
+    
+    //The "BrumSkyOS::Input<>() is a function that makes sure the data type in the '<>' is the one entered." 
     Option = BrumSkyOS::Input<int>("Which would you like to do? [Select the number attached to the activity]: ");
     
     std::cout << std::endl;
     
+    //This is an alternative to if-else statements.
     switch(Option){
         case 1:
           std::cout << "Creating new file, enter file name: ";
@@ -94,7 +103,8 @@ while(true){
           std::cout << "The current time is: ";
           BrumSkyOS::Time();
           break;
-          
+        
+        //If the user enters "10" the program will end. 
         case 10:
           std::cout << "Good bye!\n";
           return 0;

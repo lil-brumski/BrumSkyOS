@@ -1,16 +1,29 @@
+//I'm too lazy to drop comments on each function Lmao! 🤣 😂
+//The function names are self-explanatory though.//The "FileManager::RenameFile()" function is not 100% efficient! As my C++ knowledge advances, this code will be more efficient, I promise! :)
+
+//Made by David Tamaratare Oghenebrume. 
+//@lil-brumski on GitHub.
+//This project is only meant for improving my C++ knowledge [for now].
+
 #include <BrumSkyOS/FileManager.hpp>
 
+//An alias for the "std::filesystem" namespace.
 namespace fs = std::filesystem;
 
 namespace BrumSkyOS{
 
-
+//This function creates the file when called and given the file name.
 void FileManager::CreateFile(const std::string& file_name){
+  
+  //Creates a variable of type std::filesystem::path that takes in the name of the file.
   fs::path FilePath(file_name);
   
+  //A try-catch block for catching errors, obviously.
   try{
     if(!fs::exists(FilePath)){
+        //The "std::ofstream" class is useful when you want to create or write to a file. "File" is the object.
         std::ofstream File(file_name);
+        //Checks if the file is open [it's kinda self-explanatory but comments are important, lmao]
         if(File.is_open()){
           std::cout << "\'" << file_name << "\' successfully created!\n";
           File.close();
