@@ -1,9 +1,2 @@
 build/
 
-PythonBindings/build/
-
-PythonBindings/pybind11/
-
-CSBindings/build/
-
-CSBindings/.CSharpShellProjData.db
