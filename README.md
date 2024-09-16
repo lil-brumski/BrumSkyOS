@@ -21,7 +21,7 @@ To run this project:
 
 4. Compile the project using cmake and make: ```$ cmake .. && make```
 
-5. Run the executable: ```$ ./BrumSkyOS```
+5. Run the executable: ```$ ./BrumSkyOS.o```
 
 
 What my 'OS' can do:
