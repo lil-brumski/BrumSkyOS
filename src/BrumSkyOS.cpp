@@ -3,9 +3,9 @@
 //@lil-brumski on GitHub.
 //This project is only meant for improving my C++ knowledge [for now].
 
-#include <BrumSkyOS/FileManager.hpp>
-#include <BrumSkyOS/ErrorHandler.hpp>
-#include <BrumSkyOS/Time.hpp>
+#include <BrumSkyOS/FileManager/FileManager.hpp>
+#include <BrumSkyOS/ErrorHandler/ErrorHandler.hpp>
+#include <BrumSkyOS/TimeManager/Time.hpp>
 #include <array>
 
 int main(){

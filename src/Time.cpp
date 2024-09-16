@@ -1,4 +1,4 @@
-#include <BrumSkyOS/Time.hpp>
+#include <BrumSkyOS/TimeManager/Time.hpp>
 
 namespace BrumSkyOS{
   //This void function prints out the current time.
