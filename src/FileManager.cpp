@@ -6,7 +6,7 @@
 //@lil-brumski on GitHub.
 //This project is only meant for improving my C++ knowledge [for now].
 
-#include <BrumSkyOS/FileManager/FileManager.hpp>
+#include "FileManager.hpp"
 
 //An alias for the "std::filesystem" namespace.
 namespace fs = std::filesystem;

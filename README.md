@@ -8,20 +8,17 @@ Necessary stuff to run this project:
 * 1. C++ compiler (e.g Clang, GNU, etc).
 * 2. CMAKE.
 * 3. A working command line/terminal.
-* 4. Download `git` on your device's terminal.
-* In summary, run ```$ pkg install clang cmake git```
+* 4. Git
 
-To run this project: 
-
-1. Run this in any directory on your device that you wish to store this repo in: ```$ git clone https://github.com/lil-brumski/BrumSkyOS.git```
-
-2. Run this: ```$ cd BrumSkyOS/```
-
-3. Run these codes: ```$ mkdir build && cd build/```
-
-4. Compile the project using cmake and make: ```$ cmake .. && make```
-
-5. Run the executable: ```$ ./BrumSkyOS.o```
+To run this project enter thesw in any directory on your device that you wish to store this repo in: 
+```bash
+   $ pkg install clang cmake git
+   $ git clone https://github.com/lil-brumski/BrumSkyOS.git
+   $ cd BrumSkyOS/
+   $ mkdir build && cd build/
+   $ cmake .. && make
+   $ ./BrumSkyOS.o
+```
 
 
 What my 'OS' can do:

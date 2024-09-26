@@ -3,9 +3,9 @@
 //@lil-brumski on GitHub.
 //This project is only meant for improving my C++ knowledge [for now].
 
-#include <BrumSkyOS/FileManager/FileManager.hpp>
-#include <BrumSkyOS/ErrorHandler/ErrorHandler.hpp>
-#include <BrumSkyOS/TimeManager/Time.hpp>
+#include <FileManager.hpp>
+#include <ErrorHandler.hpp>
+#include <Time.hpp>
 #include <array>
 
 int main(){
@@ -15,7 +15,7 @@ int main(){
   std::string UserTask2 = "";
   int Option = 0;
   
-  //This is a type of C++ array that uses the principle of Resource Acquisition Is Initialisation [R.A.I.I.].. It stores 10 string elements.
+  //This is a type of C++ array that uses the principle of Resource Acquisition Is Initialisation [R.A.I.I.].. It stores 10 string elements. :)
   std::array<std::string, 10> services = 
   {
    "{1.} Creation of file",
