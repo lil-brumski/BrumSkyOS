@@ -9,6 +9,9 @@ Necessary stuff to run this project:
 * 2. CMAKE.
 * 3. A working command line/terminal.
 * 4. Git
+* 5. Python {depends}
+
+The python files are used only for automation. 
 
 To run this project enter thesw in any directory on your device that you wish to store this repo in: 
 ```bash
@@ -20,6 +23,11 @@ To run this project enter thesw in any directory on your device that you wish to
    $ ./BrumSkyOS.o
 ```
 
+Or:
+```bash
+   $ python setup.py
+   $ python run.py
+```
 
 What my 'OS' can do:
 
