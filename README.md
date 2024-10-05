@@ -25,6 +25,9 @@ To run this project enter thesw in any directory on your device that you wish to
 
 Or:
 ```bash
+   $ pkg install clang cmake git python
+   $ git clone https://github.com/lil-brumski/BrumSkyOS.git
+   $ cd BrumSkyOS/
    $ python setup.py
    $ python run.py
 ```
