@@ -43,5 +43,9 @@ What my 'OS' can do:
 
 ___Made by David Tamaratare Oghenebrume, a Computer Engineering student of *Rivers State University*, Port Harcourt, Nigeria.___
 
+# License
+
+This project uses the MIT License, see below for more info:
+
 [LICENSE](https://github.com/lil-brumski/BrumSkyOS/blob/main/LICENSE)
 
