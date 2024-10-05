@@ -18,8 +18,10 @@ To run this project enter thesw in any directory on your device that you wish to
    $ pkg install clang cmake git python
    $ git clone https://github.com/lil-brumski/BrumSkyOS.git
    $ cd BrumSkyOS/
-   $ mkdir build && cd build/
-   $ cmake .. && make
+   $ mkdir build 
+   $ cd build/
+   $ cmake .. 
+   $ make
    $ ./BrumSkyOS.o
 ```
 
