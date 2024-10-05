@@ -1,6 +1,6 @@
 ```This is not an actual Operating System, it's more of a play project to improve on my C++ programming knowledge.```
 
-Update: This project now has removed Python/C++ and C++/C# bindings. The Python and C# codes are in the `old_brumskyos.zip` file.
+Update: The Python and C# codes which were stored in the `old_brumskyos.zip` file has been removed.
 
 You also have to build this project from scratch to use it.
 
@@ -15,7 +15,7 @@ The python files are used only for automation.
 
 To run this project enter thesw in any directory on your device that you wish to store this repo in: 
 ```bash
-   $ pkg install clang cmake git
+   $ pkg install clang cmake git python
    $ git clone https://github.com/lil-brumski/BrumSkyOS.git
    $ cd BrumSkyOS/
    $ mkdir build && cd build/
@@ -42,4 +42,6 @@ What my 'OS' can do:
 * 9. Checking of current time.
 
 ___Made by David Tamaratare Oghenebrume, a Computer Engineering student of *Rivers State University*, Port Harcourt, Nigeria.___
+
+[LICENSE](https://github.com/lil-brumski/BrumSkyOS/blob/main/LICENSE)
 
