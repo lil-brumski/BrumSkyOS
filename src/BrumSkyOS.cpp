@@ -1,7 +1,8 @@
 //This is the main file of this project.
-//Made by David Tamaratare Oghenebrume. 
+//Created by David Tamaratare Oghenebrume.
+//Copyright (c) 2024 David Tamaratare Oghenebrume
 //@lil-brumski on GitHub.
-//This project is only meant for improving my C++ knowledge [for now].
+//This project is only meant for improving my C++ knowledge.
 
 #include <FileManager.hpp>
 #include <ErrorHandler.hpp>
@@ -30,7 +31,7 @@ int main(){
    "{10.} Quit BrumSkyOS"
    };
   
-
+   std::expected<std::string, std::string> result;
 
 while(true){  
     std::cout << std::endl;
@@ -50,13 +51,25 @@ while(true){
         case 1:
           std::cout << "Creating new file, enter file name: ";
           getline(std::cin, UserTask);
-          BrumSkyOS::FileManager::CreateFile(UserTask);
+          result = BrumSkyOS::FileManager::CreateFile(UserTask);
+          if(!result){
+           std::cout << result.error() << std::endl;
+          }
+          else{
+           std::cout << result.value();
+          }
           break;
           
         case 2:
           std::cout << "Deleting file, enter file name: ";
           getline(std::cin, UserTask);
-          BrumSkyOS::FileManager::DeleteFile(UserTask);
+          result = BrumSkyOS::FileManager::DeleteFile(UserTask);
+          if(!result){
+           std::cout << result.error() << std::endl;
+          }
+          else{
+           std::cout << result.value();
+          }
           break;
           
         case 3:
@@ -64,25 +77,49 @@ while(true){
           getline(std::cin, UserTask);
           std::cout << "Enter new name: ";
           getline(std::cin, UserTask2);
-          BrumSkyOS::FileManager::RenameFile(UserTask, UserTask2);
+          result = BrumSkyOS::FileManager::RenameFile(UserTask, UserTask2);
+          if(!result){
+           std::cout << result.error() << std::endl;
+          }
+          else{
+           std::cout << result.value();
+          }
           break;
           
         case 4:
           std::cout << "Enter the file name: ";
           getline(std::cin, UserTask);
-          BrumSkyOS::FileManager::WriteToFile(UserTask);
+          result = BrumSkyOS::FileManager::WriteToFile(UserTask);
+          if(!result){
+           std::cout << result.error() << std::endl;
+          }    
+          else{
+           std::cout << result.value();
+          }
           break;
           
         case 5:
           std::cout << "Enter the file name: ";
           getline(std::cin, UserTask);
-          BrumSkyOS::FileManager::ReadFile(UserTask);
+          result = BrumSkyOS::FileManager::ReadFile(UserTask);
+          if(!result){
+           std::cout << result.error() << std::endl;
+          }  
+          else{
+           std::cout << result.value();
+          }
           break;
           
         case 6:
           std::cout << "Creating new folder, enter folder name: ";
           getline(std::cin, UserTask);
-          BrumSkyOS::FileManager::CreateFolder(UserTask);
+          result = BrumSkyOS::FileManager::CreateFolder(UserTask);
+          if(!result){
+           std::cout << result.error() << std::endl;
+          }
+          else{
+           std::cout << result.value();
+          }
           break;
           
         case 7:
@@ -90,13 +127,25 @@ while(true){
           getline(std::cin, UserTask);
           std::cout << "Enter new name: ";
           getline(std::cin, UserTask2);
-          BrumSkyOS::FileManager::RenameFolder(UserTask, UserTask2);
+          result = BrumSkyOS::FileManager::RenameFolder(UserTask, UserTask2);
+          if(!result){
+           std::cout << result.error() << std::endl;
+          }
+          else{
+           std::cout << result.value();
+          }
           break;
           
         case 8:
           std::cout << "Deleting folder, enter folder name: ";
           getline(std::cin, UserTask);
-          BrumSkyOS::FileManager::DeleteFolder(UserTask);
+          result = BrumSkyOS::FileManager::DeleteFolder(UserTask);
+          if(!result){
+           std::cout << result.error() << std::endl;
+          }
+          else{
+           std::cout << result.value();
+          }
           break;
    
         case 9:

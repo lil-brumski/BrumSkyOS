@@ -2,7 +2,8 @@
 //The function names are self-explanatory though.
 //The "FileManager::RenameFile()" function is not 100% efficient! As my C++ knowledge advances, this code will be more efficient, I promise! :)
 
-//Made by David Tamaratare Oghenebrume. 
+//Created by David Tamaratare Oghenebrume.
+//Copyright (c) 2024 David Tamaratare Oghenebrume
 //@lil-brumski on GitHub.
 //This project is only meant for improving my C++ knowledge [for now].
 
@@ -14,161 +15,142 @@ namespace fs = std::filesystem;
 namespace BrumSkyOS{
 
 //This function creates the file when called and given the file name.
-void FileManager::CreateFile(const std::string& file_name){
+std::expected<std::string, std::string> FileManager::CreateFile(const std::string& file_name){
   
   //Creates a variable of type std::filesystem::path that takes in the name of the file.
   fs::path FilePath(file_name);
   
-  //A try-catch block for catching errors, obviously.
-  try{
     if(!fs::exists(FilePath)){
         //The "std::ofstream" class is useful when you want to create or write to a file. "File" is the object.
         std::ofstream File(file_name);
         //Checks if the file is open [it's kinda self-explanatory but comments are important, lmao]
         if(File.is_open()){
-          std::cout << "\'" << file_name << "\' successfully created!\n";
+          return "\'" + file_name + "\' successfully created!\n";
           File.close();
         }
         else{
-          std::cout << "An error occurred!\n";
+          return std::unexpected("An error occurred!\n");
         }
     }
     else{
-        throw std::runtime_error("File already exists!");
+        return std::unexpected("Error: File already exists!");
     }
-  }
-  catch(const std::exception& error){
-      std::cerr << "Error: " << error.what() << std::endl;
-  }
+  
+  return "";
+  
 }
 
-void FileManager::DeleteFile(const std::string& file_name){
+std::expected<std::string, std::string> FileManager::DeleteFile(const std::string& file_name){
   fs::path FilePath(file_name);
 
-  try{
     if(fs::exists(FilePath)){
         if(fs::remove(FilePath)){
-          std::cout << "\'" << file_name << "\' successfully deleted!\n";
+          return "\'" + file_name + "\' successfully deleted!\n";
         }
         else{
-          std::cout << "Couldn\'t delete file, try again.\n";
+          return std::unexpected("Error: Couldn\'t delete file, try again.\n");
         }
     }
     else{
-      throw std::runtime_error("File does not exist in the first place!");
+       return std::unexpected("Error: File does not exist in the first place!");
     }
-  }
-  catch(const std::exception& error){
-      std::cerr << "Error: " << error.what() << std::endl;
-  }
-
+  
+  return "";
+  
 }
 
-void FileManager::RenameFile(const std::string& file_name, const std::string& new_name){
+std::expected<std::string, std::string> FileManager::RenameFile(const std::string& file_name, const std::string& new_name){
   fs::path OldFilePath(file_name);
   fs::path NewFilePath(new_name);
   
-  try{
     if(fs::exists(OldFilePath) && !fs::exists(NewFilePath)){
         fs::rename(OldFilePath, NewFilePath);
-        std::cout << "Successfully renamed \'" << file_name << "\' to \'" << new_name << "\'!\n";
-    }
-    else if(fs::exists(NewFilePath) && !fs::exists(OldFilePath)){
-        throw std::runtime_error("\'" + file_name + "\' does not exist!");
+        return "Successfully renamed \'" + file_name + "\' to \'" + new_name + "\'!\n";
     }
     else if(fs::exists(NewFilePath) && fs::exists(OldFilePath)){
-        throw std::runtime_error("\'" + new_name + "\' already exists.");
+        return std::unexpected("Error: \'" + new_name + "\' already exists.");
     }
     else if(!fs::exists(OldFilePath)){
-        throw std::runtime_error("\'" + file_name + "\' does not exist!");
+        return std::unexpected("Error: \'" + file_name + "\' does not exist!");
     }
-  }
-  catch(const std::exception& error){
-      std::cerr << "Error: " << error.what() << std::endl;
-  }
+  
+  return "";
+ 
 }
 
-void FileManager::CreateFolder(const std::string& folder_name){
+std::expected<std::string, std::string> FileManager::CreateFolder(const std::string& folder_name){
   fs::path FolderPath(folder_name);
   
-  try{
-    if(!fs::exists(FolderPath)){
-        if(fs::create_directory(FolderPath)){
-          std::cout << "Folder created successfully!\n";
+  if(!fs::exists(FolderPath)){
+    if(fs::create_directory(FolderPath)){
+          return "Folder created successfully!\n";
         }
         else{
-          std::cout << "Could not create folder, try again.\n";
+          return std::unexpected("Error: Could not create folder, try again.\n");
         }
     }
     else{
-        throw std::runtime_error("Folder already exists!");
+        return std::unexpected("Error: Folder already exists!");
     }
-  }
-  catch(const std::exception& error){
-      std::cerr << "Error: " << error.what() << std::endl;
-  }
+  
+  return "";
+  
 }
 
-void FileManager::DeleteFolder(const std::string& folder_name){
+std::expected<std::string, std::string> FileManager::DeleteFolder(const std::string& folder_name){
   fs::path FolderPath(folder_name);
   
-  try{
     if(fs::exists(FolderPath) && fs::is_directory(FolderPath)){
         if(fs::remove(FolderPath)){
-          std::cout << "Folder deleted successfully!\n";
+          return "Folder deleted successfully!\n";
         }
         else{
-          std::cout << "Could not delete folder, sorry :(\n";
+          return std::unexpected("Error: Could not delete folder, sorry :(\n");
         }
     }
     else if(!fs::exists(FolderPath)){
-        throw std::runtime_error("Directory does not exist bro :(");
+         return std::unexpected("Error: Directory does not exist bro :(");
     }
     else{
-        throw std::runtime_error("\'" + folder_name + "\' is a file, not a directory.");
+        return std::unexpected("Error: \'" + folder_name + "\' is a file, not a directory.");
     }
-  }
-  catch(const std::exception& error){
-      std::cerr << "Error: " << error.what() << std::endl;
-  }
+  
+  return "";
+  
 }
 
-void FileManager::RenameFolder(const std::string& folder_name, const std::string& new_name){
+std::expected<std::string, std::string> FileManager::RenameFolder(const std::string& folder_name, const std::string& new_name){
   fs::path OldFolderPath(folder_name);
   fs::path NewFolderPath(new_name);
   
-  try{
     if(fs::exists(OldFolderPath) && fs::is_directory(OldFolderPath)){
         
         if(fs::exists(NewFolderPath) && fs::is_directory(NewFolderPath)){
-            throw std::runtime_error("\'" + new_name + "\' already exists.");
+            return std::unexpected("Error: \'" + new_name + "\' already exists.");
         }
         else if(!fs::is_directory(NewFolderPath)){
-            throw std::runtime_error("\'" + new_name + "\' is a file, you can\'t have a folder have the same name as a file for now, will change in the future.");
+            return std::unexpected("Error: \'" + new_name + "\' is a file, you can\'t have a folder have the same name as a file for now, will change in the future.");
         }   
         else{
           fs::rename(OldFolderPath, NewFolderPath);
-          std::cout << "Successfully renamed \'" << folder_name << "\' to \'" << new_name << "\'!\n";
+          return "Successfully renamed \'" + folder_name + "\' to \'" + new_name + "\'!\n";
         }    
            
     }
     else if(!fs::exists(OldFolderPath)){
-        throw std::runtime_error("\'" + folder_name + "\' does not exist!");
+        return std::unexpected("Error: \'" + folder_name + "\' does not exist!");
     }
     else{
-        throw std::runtime_error("\'" + folder_name + "\' is not a directory!");
+        return std::unexpected("Error: \'" + folder_name + "\' is not a directory!");
     }
-  }
-  catch(const std::exception& error){
-      std::cerr << "Error: " << error.what() << std::endl;
-  }
+  
+  return "";
   
 }
 
-void FileManager::ReadFile(const std::string& file_name){
+std::expected<std::string, std::string> FileManager::ReadFile(const std::string& file_name){
   fs::path FilePath(file_name);
-  
-  try{
+ 
     if(fs::exists(FilePath)){
         std::ifstream File(file_name);
         std::string line = "";
@@ -176,40 +158,39 @@ void FileManager::ReadFile(const std::string& file_name){
           std::cout << line << std::endl;
         }
         File.close();
+        return "Successfully read through file!\n";
      }
      else{
-         throw std::runtime_error("File does not exist, create the file first.");
+         return std::unexpected("Error: File does not exist, create the file first.");
      }
-  }
-  catch(const std::exception& error){
-      std::cerr << "Error: " << error.what() << std::endl;
-  }
+  
+  return "";
+  
 }
 
-void FileManager::WriteToFile(const std::string& file_name){
+std::expected<std::string, std::string> FileManager::WriteToFile(const std::string& file_name){
   fs::path FilePath(file_name);
   
-  try{
     if(fs::exists(FilePath)){
         std::ofstream File(file_name);
         std::string message = "";
         if(File.is_open()){
-          std::cout << "Enter what you want to have in the file: ";
+          std::print("Enter what you want to have in the file: ");
           std::getline(std::cin, message);
           File << message << std::endl;
           File.close();
+          return "Successfully written to file!\n";
         }
         else{
-          std::cout << "Could not open file, try again.\n";
+          return std::unexpected("Error: Could not open file, try again.\n");
         }
     }
     else{
-        throw std::runtime_error("Create file before attempting to write to it!");
+        return std::unexpected("Error: Create file first before attempting to write to it!");
     }
-  }
-  catch(const std::exception& error){
-      std::cerr << "Error: " << error.what() << std::endl;
-  }
+  
+  return "";
+  
 }
 
 

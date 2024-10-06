@@ -2,10 +2,10 @@
 
 Update: The Python and C# codes which were stored in the `old_brumskyos.zip` file has been removed.
 
-You also have to build this project from scratch to use it.
+You also have to build this project from scratch to use it. This project uses C++23.
 
 Necessary stuff to run this project:
-* 1. C++ compiler (e.g Clang, GNU, etc).
+* 1. C++ 23 compiler (e.g Clang, GNU, etc).
 * 2. CMAKE.
 * 3. A working command line/terminal.
 * 4. Git
@@ -15,9 +15,13 @@ The python files are used only for automation.
 
 To run this project enter thesw in any directory on your device that you wish to store this repo in: 
 ```bash
-   $ pkg install clang cmake git python
+   $ pkg install clang cmake git
    $ git clone https://github.com/lil-brumski/BrumSkyOS.git
    $ cd BrumSkyOS/
+   $ mkdir libs
+   $ cd libs
+   $ git clone https://github.com/TartanLlama/expected.git
+   $ cd ..
    $ mkdir build 
    $ cd build/
    $ cmake .. 
@@ -34,7 +38,7 @@ Or:
    $ python run.py
 ```
 
-What my 'OS' can do:
+What my OS can do:
 
 * 1. Creation of files.
 * 2. Deletion of files.
