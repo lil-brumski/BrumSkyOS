@@ -1,15 +1,6 @@
 import os
 import subprocess
 
-if not os.path.exists('libs'):
-   subprocess.run(["mkdir", "libs"]) 
-   print("Downloading required library...")
-   subprocess.run(["git", "clone", "https://github.com/TartanLlama/expected.git"], cwd = "libs")
-else:
-   if not os.path.exists("libs/expected"):
-      print("Downloading required library...")
-      subprocess.run(["git", "clone", "https://github.com/TartanLlama/expected.git"], cwd = "libs")
-
 if not os.path.exists('build'):
    subprocess.run(["mkdir", "build"])
    subprocess.run(["cmake", ".."], cwd = "build")
