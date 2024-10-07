@@ -6,6 +6,8 @@ set(CMAKE_CXX_STANDARD 23)
 
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0")
+
 file(GLOB SOURCES "src/*.cpp")
 
 add_executable(BrumSkyOS.o ${SOURCES})
