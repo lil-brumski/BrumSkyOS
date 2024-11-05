@@ -175,7 +175,7 @@ std::expected<std::string, std::string> FileManager::WriteToFile(const std::stri
         std::ofstream File(file_name);
         std::string message = "";
         if(File.is_open()){
-          std::print("Enter what you want to have in the file: ");
+          std::cout << "Enter what you want to have in the file: ";
           std::getline(std::cin, message);
           File << message << std::endl;
           File.close();

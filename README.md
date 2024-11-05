@@ -13,9 +13,9 @@ Necessary stuff to run this project:
 
 The python files are used only for automation. 
 
-To run this project enter thesw in any directory on your device that you wish to store this repo in: 
+To run this project enter these in any directory on your device that you wish to store this repo in. (Installing clang is optional if you want g++): 
 ```bash
-   $ pkg install clang cmake git
+   $ pkg install clang cmake git g++
    $ git clone https://github.com/lil-brumski/BrumSkyOS.git
    $ cd BrumSkyOS/
    $ cd ..
@@ -23,16 +23,16 @@ To run this project enter thesw in any directory on your device that you wish to
    $ cd build/
    $ cmake .. 
    $ make
-   $ ./BrumSkyOS.o
+   $ ./BrumSkyOS
 ```
 
 Or:
 ```bash
-   $ pkg install clang cmake git python
+   $ pkg install clang cmake git python g++ libgcc-14-dev
    $ git clone https://github.com/lil-brumski/BrumSkyOS.git
    $ cd BrumSkyOS/
    $ python setup.py
-   $ python run.py
+   $ ./build/BrumSkyOS
 ```
 
 What my OS can do:
