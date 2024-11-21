@@ -25,21 +25,22 @@ if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
     message(STATUS "==========Configuring for Clang==========")
 elseif(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
     message(STATUS "==========Configuring for GNU==========")
-    set(BUILD_SHARED_LIBS OFF)
-    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -static")
 else()
     message(STATUS "Configuring for unknown compiler.")
 endif()
 
-file(GLOB SOURCES "src/*.cpp")
-
-add_executable(BrumSkyOS ${SOURCES})
+add_executable(BrumSkyOS src/BrumSkyOS.cpp
+                         src/FileManager.cpp
+                         src/Time.cpp
+               )
 
 target_include_directories(BrumSkyOS PRIVATE include)
 
-if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
-    target_link_libraries(BrumSkyOS
-        -static-libgcc 
-        -static-libstdc++
-    )
+option(BRUSTA "To build the library statically with GNU" OFF)
+
+if(BRUSTA)
+   if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+       message(STATUS "==========Compiling for GNU statically==========")
+       target_link_options(BrumSkyOS PRIVATE -static-libgcc -static-libstdc++)
+   endif()
 endif()

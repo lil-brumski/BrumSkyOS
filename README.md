@@ -1,39 +1,27 @@
 ```This is not an actual Operating System, it's more of a play project to improve on my C++ programming knowledge.```
 
-Update: The Python and C# codes which were stored in the `old_brumskyos.zip` file has been removed.
+This project uses C++23.
 
-You also have to build this project from scratch to use it. This project uses C++23.
-
-Necessary stuff to run this project:
+Necessary stuff to build and run this project:
 * 1. C++ 23 compiler (e.g Clang, GNU, etc).
 * 2. CMAKE.
 * 3. A working command line/terminal.
 * 4. Git
-* 5. Python {depends}
+* 5. Python3
 
 The python files are used only for automation. 
 
-To run this project enter these in any directory on your device that you wish to store this repo in. (Installing clang is optional if you want g++): 
-```bash
-   $ pkg install clang cmake git g++
-   $ git clone https://github.com/lil-brumski/BrumSkyOS.git
-   $ cd BrumSkyOS/
-   $ cd ..
-   $ mkdir build 
-   $ cd build/
-   $ cmake .. 
-   $ make
-   $ ./BrumSkyOS
-```
+To run this project enter these in any directory on your device that you wish to store this repo in. (Installing clang is optional if you want g++ and vice versa): 
 
-Or:
 ```bash
    $ pkg install clang cmake git python g++ libgcc-14-dev
    $ git clone https://github.com/lil-brumski/BrumSkyOS.git
    $ cd BrumSkyOS/
-   $ python setup.py
-   $ ./build/BrumSkyOS
+   $ python setup.py `or` mkdir build && cd build
+   $ ./build/BrumSkyOS `or` ./BrumSkyOS
 ```
+
+Note: By default, you can only compile statically using GNU Compiler. To compile statically, go to the `setup.py` file and change `-DBRUSTA=OFF` to `-DBRUSTA=ON'.
 
 What my OS can do:
 
