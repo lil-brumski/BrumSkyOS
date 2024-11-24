@@ -13,8 +13,19 @@ The python files are used only for automation.
 
 To run this project enter these in any directory on your device that you wish to store this repo in. (Installing clang is optional if you want g++ and vice versa): 
 
+Ubuntu/Debian (other OSs are supported too)
+
 ```bash
-   $ pkg install clang cmake git python g++ libgcc-14-dev
+   $ apt install cmake git python g++ libgcc-dev
+```
+
+Arch Linux
+
+```bash
+   $ pacman -Syu cmake git python gcc libstdc++5
+```
+
+```bash
    $ git clone https://github.com/lil-brumski/BrumSkyOS.git
    $ cd BrumSkyOS/
    $ python setup.py `or` mkdir build && cd build
