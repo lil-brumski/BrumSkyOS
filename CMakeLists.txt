@@ -36,7 +36,7 @@ add_executable(BrumSkyOS src/BrumSkyOS.cpp
 
 target_include_directories(BrumSkyOS PRIVATE include)
 
-option(BRUSTA "To build the library statically with GNU" OFF)
+option(BRUSTA "To build the library statically with GNU Compiler" OFF)
 
 if(BRUSTA)
    if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
