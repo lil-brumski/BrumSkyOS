@@ -28,7 +28,7 @@ Arch Linux
 ```bash
    $ git clone https://github.com/lil-brumski/BrumSkyOS.git
    $ cd BrumSkyOS/
-   $ python setup.py `or` mkdir build && cd build
+   $ python setup.py `or` mkdir build && cd build && cmake .. && make
    $ ./build/BrumSkyOS `or` ./BrumSkyOS
 ```
 
