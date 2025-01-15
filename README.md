@@ -7,9 +7,6 @@ Necessary stuff to build and run this project:
 * 2. CMAKE.
 * 3. A working command line/terminal.
 * 4. Git
-* 5. Python3
-
-The python files are used only for automation. 
 
 To run this project enter these in any directory on your device that you wish to store this repo in. (Installing clang is optional if you want g++ and vice versa): 
 
@@ -19,20 +16,15 @@ Ubuntu/Debian (other OSs are supported too)
    $ apt install cmake git python g++ libgcc-dev
 ```
 
-Arch Linux
-
-```bash
-   $ pacman -Syu cmake git python gcc libstdc++5
-```
-
 ```bash
    $ git clone https://github.com/lil-brumski/BrumSkyOS.git
    $ cd BrumSkyOS/
-   $ python setup.py `or` mkdir build && cd build && cmake .. && make
-   $ ./build/BrumSkyOS `or` ./BrumSkyOS
+   $ mkdir build && cd build 
+   $ cmake .. && make
+   $ ./BrumSkyOS
 ```
 
-Note: By default, you can only compile statically using GNU Compiler. To compile statically, go to the `setup.py` file and change `-DBRUSTA=OFF` to `-DBRUSTA=ON'.
+Note: By default, you can only compile statically using GNU Compiler, you can change that. To compile statically, use `cmake -DBRUSTA=ON ..`. Also, it compiles dynamically by default.
 
 What my OS can do:
 

@@ -1,9 +1,11 @@
-cmake_minimum_required(VERSION 3.20.3)
+cmake_minimum_required(VERSION 3.25.3)
 
-project(BrumSkyOS VERSION 1.0.2 DESCRIPTION "Just for fun, I know it's no way close to being an actual OS.")
+project(BrumSkyOS VERSION 1.0.3 DESCRIPTION "Just for fun, I know it's no way close to being an actual OS.")
 
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
+set(CMAKE_BUILD_TYPE Release)
+set(CMAKE_EXE_LINKER_FLAGS_RELEASE "-s")
 
 if(ANDROID)
    message(STATUS "==========Building for Android platform==========")
@@ -29,19 +31,22 @@ else()
     message(STATUS "Configuring for unknown compiler.")
 endif()
 
-add_executable(BrumSkyOS src/BrumSkyOS.cpp
-                         src/FileManager.cpp
-                         src/Time.cpp
-               )
+set(SOURCES
+    src/BrumSkyOS.cpp
+    src/FileManager.cpp
+    src/Time.cpp
+)
 
-target_include_directories(BrumSkyOS PRIVATE include)
+add_executable(${PROJECT_NAME} ${SOURCES})
+
+target_include_directories(${PROJECT_NAME} PRIVATE include)
 
 option(BRUSTA "To build the library statically with GNU Compiler" OFF)
 
 if(BRUSTA)
    if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
        message(STATUS "==========Compiling for GNU statically==========")
-       target_link_options(BrumSkyOS PRIVATE -static-libgcc -static-libstdc++)
+       set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static")
    else()
        message(FATAL_ERROR "==========Error, current compiler isn't GNU!==========")
    endif()
